@@ -36,15 +36,29 @@ function App() {
       setClassificacao("Você está com Obesidade de Grau III (mórbida).");
     };
 
-    setResultado(+imc);
+    setResultado(imc);
+    setAltura("");
+    setPeso("");
+  
   };
 
   const limpaCampos = () => {
-    setAltura("");
-    setPeso("");
     setResultado("");
     setClassificacao("");
+    setAltura("");
+    setPeso("");
   };
+
+
+  //Renderização condicional
+  const renderUserStatus = () => {
+    if (resultado && classicacao ) {
+      return (<p>Seu IMC é: <strong>{ resultado }</strong> { classicacao }</p>);
+    } else {
+      return <></>;
+    }
+  };
+
 
   console.log("ESSE: ", resultado);
 
@@ -64,10 +78,12 @@ function App() {
           </div>
         </form>
         <div className="result">
-          
-          {resultado && <p>{resultado}</p>}
-          <p>{resultado} {classicacao}</p>
-          
+          {renderUserStatus()}
+          {/* {resultado && (
+            <p>
+              Seu IMC é: <strong>{resultado}</strong> {classicacao}
+            </p>
+          )} */}
         </div>
       </div>
     </div>
