@@ -40,9 +40,10 @@ function App() {
   };
 
   const limpaCampos = () => {
-    setAltura(0);
-    setPeso(0);
-    setResultado(0);
+    setAltura("");
+    setPeso("");
+    setResultado("");
+    setClassificacao("");
   };
 
   console.log("ESSE: ", resultado);
@@ -53,15 +54,20 @@ function App() {
         <h2>Calculadora IMC</h2>
         <form className="inputUser">
           <label htmlFor="altura">Altura (m)</label>
-          <input type="number" id="altura" onChange={handleAltura} />
-          <label htmlFor="peso">Peso (Kg)</label>
-          <input type="number" id="peso" onChange={handlePeso} />
-          <input type="button" onClick={calculaImc} value="Calcular IMC" />
+          <input className="entrada" type="number" id="altura" onChange={handleAltura} />
+          <label htmlFor="peso">Peso (kg)</label>
+          <input className="entrada" type="number" id="peso" onChange={handlePeso} />
+          <div className="btn">
+          <input type="button" id="calcular" onClick={calculaImc} value="Calcular IMC" />
+          <input type="button" id="limpar" onClick={limpaCampos} value="Limpar" />
 
-          <input type="button" onClick={limpaCampos} value="Limpar" />
+          </div>
         </form>
         <div className="result">
-          RESULTADO {resultado} {classicacao}
+          
+          {resultado && <p>{resultado}</p>}
+          <p>{resultado} {classicacao}</p>
+          
         </div>
       </div>
     </div>
