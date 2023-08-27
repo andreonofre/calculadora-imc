@@ -23,7 +23,7 @@ function App() {
     if (altura === "" || peso === "") {
       alert("Por favor, preencha os campos para Calcular o seu IMC");
     } else if (imc < 18.5) {
-      setClassificacao("Você está Abaixo do Peso");
+      setClassificacao("Você está Abaixo do Peso, precisa se alimentar");
     } else if (imc > 18.5 && imc < 24.9) {
       setClassificacao("Parabéns, você está com o peso ideal.");
     } else if (imc >= 25 && imc < 29.9) {
@@ -45,20 +45,19 @@ function App() {
   const limpaCampos = () => {
     setResultado("");
     setClassificacao("");
-    setAltura("");
-    setPeso("");
+    setAltura(null);
+    setPeso(null);
   };
 
 
   //Renderização condicional
-  const renderUserStatus = () => {
+  const renderResult = () => {
     if (resultado && classicacao ) {
-      return (<p>Seu IMC é: <strong>{ resultado }</strong> { classicacao }</p>);
+      return (<p className="conteudo" >Seu IMC é: <strong>{ resultado },</strong> { classicacao }</p>);
     } else {
       return <></>;
     }
   };
-
 
   console.log("ESSE: ", resultado);
 
@@ -68,9 +67,9 @@ function App() {
         <h2>Calculadora IMC</h2>
         <form className="inputUser">
           <label htmlFor="altura">Altura (m)</label>
-          <input className="entrada" type="number" id="altura" onChange={handleAltura} />
+          <input className="entrada" value={altura} type="number" id="altura" onChange={handleAltura} />
           <label htmlFor="peso">Peso (kg)</label>
-          <input className="entrada" type="number" id="peso" onChange={handlePeso} />
+          <input className="entrada" value={peso} type="number" id="peso" onChange={handlePeso} />
           <div className="btn">
           <input type="button" id="calcular" onClick={calculaImc} value="Calcular IMC" />
           <input type="button" id="limpar" onClick={limpaCampos} value="Limpar" />
@@ -78,14 +77,18 @@ function App() {
           </div>
         </form>
         <div className="result">
-          {renderUserStatus()}
+          {renderResult()}
           {/* {resultado && (
             <p>
               Seu IMC é: <strong>{resultado}</strong> {classicacao}
             </p>
           )} */}
         </div>
+      <footer>
+        <p>&copy; 2023 André Onofre. Todos os direitos reservados.</p>
+      </footer>
       </div>
+
     </div>
   );
 }

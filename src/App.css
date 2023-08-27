@@ -25,7 +25,7 @@ h2 {
     background: rgb(11, 18, 51);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 30px;
     border-radius: 10px;
 }
 .inputUser {
@@ -102,29 +102,40 @@ input {
 
 #calcular:hover {
     background: rgb(4, 116, 221);
-
-
 }
+
 #limpar:hover {
     background: rgb(202, 37, 8);
 }
 
-
 .result {
     display: block;
     background: white;
-    max-width: 330px;
-    min-width: 100%;
+    /* max-width: 330px; */
+    /* min-width: 100%; */
+    width: 410px;
     height: 100px;
     border-radius: 5px;
     margin-top: 30px;
     word-wrap: break-word;
 }
 
+footer {
+    font-weight: bold;
+    color: white;
+    margin-top: 420px;
+    font-size: 1rem;
+    text-align: center;
+}
 
+.conteudo {
+    padding: 10px;
+}
+
+/* MOBILE */
 @media (max-width: 510px) {
     .container {
-        width: 400px;
+        width: 380px;
         height: 500px;
     }
     input {
@@ -135,12 +146,27 @@ input {
         display: flex;
         justify-content: space-between;
         margin-top: 25px;
+        width: 310px;
     }
-    
     .entrada {
         height: 35px;
-        width: 320px;
+        width: 300px;
         margin-top: 10px;
     }
-    
+    .result {
+        width: 310px;
+        margin-left: 35px;
+    }
+    .inputUser {
+        margin-top: 30px;
+        margin-left: 35px;
+    }
+
+    footer {
+        font-weight: bold;
+        color: white;
+        margin-top: 335px;
+        font-size: 1rem;
+        text-align: center;
+    }
 }
